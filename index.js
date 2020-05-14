@@ -117,7 +117,7 @@ console.log(temperatureInF(24, 'C'));
  * }
 */
 function makePersonObject(id= 0, name = '', email= '') {
-  return {id, name, email};
+   return{id, name, email};
 }
 
 console.log(makePersonObject(5, "Leia", "leia@leia.com"));
@@ -135,9 +135,13 @@ console.log(makePersonObject(5, "Leia", "leia@leia.com"));
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(leia) {
+  
+
+  return `Hello, my name is ${leia.name}`;
 }
+
+console.log(getName({id:1, name:'Leia', email: 'leia@leia.com'}));
 
 
 /**
