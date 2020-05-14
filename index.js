@@ -374,9 +374,17 @@ console.log(getModelYears(cars));
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, id=0) {
+    const carInfo = inventory;
+    for(let i = 0; i < carInfo.length; i++){
+      if(carInfo[i].id === id){
+        return `This is a ${carInfo[i].car_make} ${carInfo[i].car_model}.`;
+      }
+    }
 }
+
+console.log(getCarInfoById(cars, 1));
+
 
 /**
  * ### Challenge `getOlderCars`
@@ -392,9 +400,21 @@ function getCarInfoById(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory, year) {
+  const oldcars = [];
+
+  for( let i = 0; i < inventory.length; i++){
+
+    if(inventory[i].car_year <= year){
+      oldcars.push(inventory[i]);
+    }
+  }
+
+  return oldcars;
 }
+
+console.log(getOlderCars(cars, 1998));
+
 
 /**
  * ### Challenge `getGermanCars`
@@ -409,9 +429,20 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  const germanCars = [];
+  const germanMakes = ['Audi', 'Mercedes-Benz', 'Volkswagen', 'BMW'];
+
+  for (let i = 0; i < inventory.length; i++){
+    if(germanMakes.indexOf(inventory[i].car_make) > -1){
+      germanCars.push(inventory[i]);
+    }
+  }
+  return germanCars;
 }
+
+console.log(getGermanCars(cars));
+
 
 /**
  * ### Challenge `carMaker`
@@ -426,7 +457,19 @@ function getGermanCars(/* code here */) {
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(miles) {
+  const Toyota = {
+    odometer: miles,
+    drive: function(travel){
+      this.odometer = this.odometer + travel;
+      return this.odometer;
+    }
+  }
+  console.log(Toyota);
+
+  console.log(Toyota.drive(1000));
+  console.log(Toyota.drive(1000));
 }
+
+carMaker(200000);
 
