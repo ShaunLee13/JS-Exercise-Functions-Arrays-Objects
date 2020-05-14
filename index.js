@@ -87,6 +87,18 @@ console.log(temperatureCtoF(24));
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
 
+function temperatureInF(temperature = 0, unit = 'F') {
+  if(unit === 'F'){
+    return `The temperature is ${temperature}F.`
+  } else if(unit === 'C'){
+    temperature = temperatureCtoF(temperature);
+    return `The temperature is ${temperature}F.`
+  }
+}
+
+console.log(temperatureInF(24, 'C'));
+
+
 
 /**
  * ### Challenge `makePersonObject`
