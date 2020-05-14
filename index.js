@@ -222,7 +222,7 @@ var inventory = [
 */
 
 // Data from file 
-data = [
+cars = [
   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
   { id: 3, car_make: "Land Rover", car_model: "Defender Ice Edition", car_year: 2010 },
@@ -289,6 +289,9 @@ function get3rdCar(inventory) {
   return `The is a ${the3rd.car_make} ${the3rd.car_model}`
 }
 
+console.log(get3rdCar(cars));
+
+
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -306,9 +309,15 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+
+
+function getCarInfoByIndex(inventory, index) { 
+  const yourCar = inventory[index];
+  return `This is a ${yourCar.car_make} ${yourCar.car_model}`
 }
+
+console.log(getCarInfoByIndex(cars, 0));
+
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -321,9 +330,14 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  
+  const lastCar = inventory[inventory.length-1];
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}.`
 }
+
+console.log(getLastCarInfo(cars));
+
 
 /**
  * ### Challenge `getModelYears`
@@ -334,9 +348,17 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  const years = [];
+
+  for (let i = 0; i < inventory.length; i++){
+    years.push(inventory[i].car_year);
+  }
+  return years;
 }
+
+console.log(getModelYears(cars));
+
 
 /**
  * ### Challenge `getCarInfoById`
