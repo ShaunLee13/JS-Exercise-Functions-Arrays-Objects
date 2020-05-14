@@ -61,6 +61,13 @@ console.log(sayGoodbye("Andy"));
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
 
+function temperatureCtoF(celsius= 0) {
+  
+  let fahrenheit = celsius * (9/5) + 32;
+  return `${Math.round(fahrenheit)}`
+}
+
+console.log(temperatureCtoF(24));
 
 /**
  * ### Challenge `temperatureInF`
