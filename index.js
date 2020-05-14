@@ -117,7 +117,10 @@ console.log(temperatureInF(24, 'C'));
  * }
 */
 function makePersonObject(id= 0, name = '', email= '') {
-   return{id, name, email};
+   return{
+     id: id,  
+     name : name, 
+     email:  email};
 }
 
 console.log(makePersonObject(5, "Leia", "leia@leia.com"));
@@ -458,18 +461,16 @@ console.log(getGermanCars(cars));
  *         (2) returns the updated value of the `odometer`.
 */
 function carMaker(miles) {
-  const Toyota = {
-    odometer: miles,
-    drive: function(travel){
-      this.odometer = this.odometer + travel;
+  const toyota = {
+    'odometer': miles,
+    'drive': function(travel){
+      this.odometer += travel;
       return this.odometer;
     }
   }
-  console.log(Toyota);
-
-  console.log(Toyota.drive(1000));
-  console.log(Toyota.drive(1000));
+ 
+  return toyota;
 }
 
-carMaker(200000);
-
+console.log(carMaker(200000));
+console.log(carMaker(200000).drive(500));
